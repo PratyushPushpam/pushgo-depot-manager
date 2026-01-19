@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
 import { Depot, DepotState } from "@/types";
 import { StatsCards } from "@/components/depot-manager/stats-cards";
@@ -184,13 +185,24 @@ export default function Home() {
             </h1>
             <p className="text-slate-500 mt-1 text-lg font-medium">Manage PushGo logistics and field teams</p>
           </div>
-          <button
-            onClick={() => handleOpenModal(null)}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-2xl font-black flex items-center justify-center gap-2 transition-all shadow-xl shadow-indigo-100 hover:shadow-indigo-200 active:scale-95 uppercase tracking-widest text-sm"
-          >
-            <Icon name="Plus" size={20} strokeWidth={3} />
-            Register New Depot
-          </button>
+
+          <div className="flex gap-4">
+            <Link
+              href="/superadmin"
+              className="bg-white text-slate-500 hover:text-indigo-600 border border-slate-200 hover:border-indigo-100 px-6 py-4 rounded-2xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-wider"
+              title="Superadmin Access"
+            >
+              <Icon name="ShieldCheck" size={20} strokeWidth={2.5} />
+              <span>Superadmin Login</span>
+            </Link>
+            <button
+              onClick={() => handleOpenModal(null)}
+              className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-2xl font-black flex items-center justify-center gap-2 transition-all shadow-xl shadow-indigo-100 hover:shadow-indigo-200 active:scale-95 uppercase tracking-widest text-sm"
+            >
+              <Icon name="Plus" size={20} strokeWidth={3} />
+              Register New Depot
+            </button>
+          </div>
         </div>
 
         {/* Stats Section */}
